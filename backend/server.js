@@ -5,6 +5,9 @@ const cors = require("cors");
 
 const connectDB = require("./config/db");
 const medicineRoutes = require("./routes/medicineRoutes");
+const saleRoutes = require("./routes/saleRoutes");
+const restockRoutes = require("./routes/restockRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 dotenv.config();
 
@@ -16,6 +19,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/medicines", medicineRoutes);
+app.use("/api/sales", saleRoutes);
+app.use("/api/restocks", restockRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 
 app.get("/", (req, res) => {
   res.send("API Running");
